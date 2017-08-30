@@ -322,7 +322,7 @@ class NEApi:
             printException(Exception, e, cn('SomeErrorsWithdailySign'))
         
     
-    def getUserPLs(self, uid = 0, offset=0, limit=-1):
+    def getUserPLs(self, uid = 0, offset=0, limit=1000):
         try:
             if not uid:
                 uid = self.uid
@@ -459,8 +459,9 @@ class NEApi:
             logs('listToUseOldApi: ' + str(listToUseOldApi))
             if listToUseOldApi != []:
                 for i,j in enumerate(listToUseOldApi):
-                    if songDict[j].get('mp3Url') and songDict[j].get('lMusic'):
+                    if False and songDict[j].get('mp3Url') and songDict[j].get('lMusic'):
                         #can be searched
+                        #old api dead. no hope for getting url by mp3url or dfsid
                         url = getUrlBySongDict(songDict[j], br)
                         
                     else:
